@@ -17,15 +17,26 @@
             //TODO #2: Complete the View Jobs By Category Table
         }
 
-        <td></td> @* Feel free to remove or modify this element if necessary. *@
-        @foreach (var category in @*ViewBag.tableChoices*@ ListController.TableChoices)
+        <td>
+            
+                @foreach (var job in TechJobsMVC.Data.JobData.FindAll())
+                {
+                    <p>
+    <a asp-controller="List" asp-action="Jobs" asp-route-column="all" asp-route-value="all">@job.ToString()</a>
+</p>
+                }
+            
+            
+            
+        </td> @* Feel free to remove or modify this element if necessary. *@
+        @foreach (var choice in @*ViewBag.tableChoices*@ ListController.TableChoices)
         {
             <td>
                 <ul>
-                    @foreach (var item in category.Value)
+                    @foreach (var item in choice.Value)
                     {
                         <li>
-                            <a asp-controller="List" asp-action="Jobs" asp-route-column="@category.Key" asp-route-value="@item">@item</a>
+                            <a asp-controller="List" asp-action="Jobs" asp-route-column="@choice.Key" asp-route-value="@item">@item</a>
                             @* asp-route-* allows Razor to dynamically generate URL query params. *@
                         </li>
                     }
