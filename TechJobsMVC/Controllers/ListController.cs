@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using TechJobsMVC.Data;
 using TechJobsMVC.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TechJobsMVC.Controllers
 {
     public class ListController : Controller
@@ -20,7 +18,7 @@ namespace TechJobsMVC.Controllers
             {"positionType", "Position Type"},
             {"coreCompetency", "Skill"}
         };
-        internal static Dictionary<string, List<JobField>> TableChoices = new Dictionary<string, List<JobField>>()
+        public static Dictionary<string, List<JobField>> TableChoices { get; } = new Dictionary<string, List<JobField>>()
         {
             {"employer", JobData.GetAllEmployers()},
             {"location", JobData.GetAllLocations()},
@@ -31,7 +29,9 @@ namespace TechJobsMVC.Controllers
         public IActionResult Index()
         {
             ViewBag.columns = ColumnChoices;
-            ViewBag.tableChoices = TableChoices;
+            // ViewBag.tableChoices = TableChoices;
+            // ^ seems redundant.  Trying to eliminate it by making reference to ListController.TableChoices, which had to be made public (also made it get only)
+
             ViewBag.employers = JobData.GetAllEmployers();
             ViewBag.locations = JobData.GetAllLocations();
             ViewBag.positionTypes = JobData.GetAllPositionTypes();

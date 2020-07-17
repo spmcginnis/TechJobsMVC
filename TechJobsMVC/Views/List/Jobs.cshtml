@@ -1,10 +1,32 @@
-﻿<div class="container body-content">
+﻿@using TechJobsMVC.Controllers
+
+<div class="container body-content">
 
     <h1>@ViewBag.title</h1>
 
     @{
-        //TODO #1: Use a loop to display job results in a table.
+        //TODO #1: Use a loop to display job results in a table. DONE
     }
+
+<table class="job-listing">
+    @foreach (var n in ViewBag.jobs)
+    {
+        <tr>
+            <td>
+                <p>ID: @n.Id
+                <br />Name: @n.Name
+                <br />Employer: @n.Employer
+                <br />Location: @n.Location
+                <br />Position Type: @n.PositionType
+                <br />Skill: @n.CoreCompetency
+                </p>
+            </td>
+        </tr>
+
+    }
+
+</table>
+
 
 
 </div>

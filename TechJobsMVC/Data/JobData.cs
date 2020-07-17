@@ -43,6 +43,8 @@ namespace TechJobsMVC.Data
                 jobs = FindByValue(value);
                 return jobs;
             }
+
+            // EX: column=location value=Kansas%20City
             foreach (Job job in AllJobs)
             {
 

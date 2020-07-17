@@ -1,4 +1,6 @@
-﻿<div class="container body-content">
+﻿@using TechJobsMVC.Controllers
+
+<div class="container body-content">
     <h1>@ViewBag.title</h1>
     <h2 class="centered">View Jobs By Category</h2>
 </div>
@@ -16,7 +18,7 @@
         }
 
         <td></td> @* Feel free to remove or modify this element if necessary. *@
-        @foreach (var category in ViewBag.tableChoices)
+        @foreach (var category in @*ViewBag.tableChoices*@ ListController.TableChoices)
         {
             <td>
                 <ul>
@@ -24,6 +26,7 @@
                     {
                         <li>
                             <a asp-controller="List" asp-action="Jobs" asp-route-column="@category.Key" asp-route-value="@item">@item</a>
+                            @* asp-route-* allows Razor to dynamically generate URL query params. *@
                         </li>
                     }
                 </ul>
