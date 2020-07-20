@@ -1,0 +1,40 @@
+﻿@using TechJobsMVC.Controllers
+
+<div class="container body-content">
+
+    <partial name="/Views/Search/_SearchFormPart.cshtml" />
+
+
+    <h1>@ViewBag.title</h1>
+
+    @{
+//TODO #1: Use a loop to display job results in a table. DONE
+    }
+
+    <table class="job-listing">
+        @if (ViewBag.jobs.Count == 0)
+        {
+            <tr>No results found for "@ViewBag.searchTerm."</tr>
+        } 
+        @foreach (var n in ViewBag.jobs)
+        {
+            <tr>
+                <td>
+                    <p>
+                        ID: @n.Id
+                        <br />Name: @n.Name
+                        <br />Employer: @n.Employer
+                        <br />Location: @n.Location
+                        <br />Position Type: @n.PositionType
+                        <br />Skill: @n.CoreCompetency
+                    </p>
+                </td>
+            </tr>
+
+        }
+
+    </table>
+
+
+
+</div>

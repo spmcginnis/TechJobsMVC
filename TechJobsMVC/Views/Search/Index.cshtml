@@ -2,7 +2,9 @@
 
     <h1>@ViewBag.title</h1>
 
-    <form action="/search/results" method="post">
+    <partial name="/Views/Search/_SearchFormPart.cshtml" />
+
+@*    <form action="/search/results" method="post">
         <h2>Search by:</h2>
 
         <p>
@@ -24,10 +26,11 @@
         <input type="submit" value="Search" />
     </form>
 
-    <hr />
+    <hr />*@
 
     @{
         //TODO #4: Loop over the search results to display all job fields.
     }
+
 
 </div>

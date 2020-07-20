@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Search\Index1.cshtml" />
+    <Content Remove="Views\Search\Search.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Views\TechJobs\" />
     <Folder Include="Data\" />
     <Folder Include="Views\List\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
 </Project>
